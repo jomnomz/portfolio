@@ -88,13 +88,15 @@ export default function NavBar ({ scrollToSection, refs, activeSection, setActiv
                                 onClick={() => handleSectionClick('home', refs.home)} 
                                 className={`${styles.dropDownContent} ${activeSection === 'home' ? styles.active : ''}`}
                             >
-                                Home
+                                Home‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎ ‎ ‎ ‎ ‎ ‎ 
+                                 ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ 
                             </div>
                             <div 
                                 onClick={() => handleSectionClick('about', refs.about)} 
                                 className={`${styles.dropDownContent} ${activeSection === 'about' ? styles.active : ''}`}
                             >
-                                About
+                                About‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ 
+                                ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ 
                             </div>
                             <div 
                                 onClick={() => handleSectionClick('projects', refs.projects)} 
@@ -106,7 +108,8 @@ export default function NavBar ({ scrollToSection, refs, activeSection, setActiv
                                 onClick={() => handleSectionClick('contact', refs.contact)} 
                                 className={`${styles.dropDownContent} ${activeSection === 'contact' ? styles.active : ''}`}
                             >
-                                Contact
+                                Contact‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ 
+                                ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ 
                             </div>
                         </div>
                     </DropDownButton>

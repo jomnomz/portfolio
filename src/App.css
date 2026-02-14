@@ -3,7 +3,7 @@
 .sections{
   flex-direction: column;
   display: flex;
-  gap: 600px;
+  gap: 500px;
 }
 
 /* larger phones */

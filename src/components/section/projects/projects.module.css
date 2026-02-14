@@ -27,6 +27,11 @@
     }
 }
 /* Desktops */
+@media screen and (min-width: 1000px){
+    .bookContainer{
+        flex-direction: column; /* Row on desktop */
+    }
+}   
 @media screen and (min-width: 1200px){
     .bookContainer{
         flex-direction: row; /* Row on desktop */

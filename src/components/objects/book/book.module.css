@@ -38,6 +38,10 @@
     left: 20px;
     right: 20px;
     text-align: center;
+    /* font-family: "Montserrat", sans-serif; */
+    font-family: "Kumbh Sans", sans-serif;
+    font-weight: bold;
+    color: rgb(24, 23, 23);
 }
 
 .imgContainer{
@@ -54,6 +58,8 @@ ul{
     margin-right: 30px; 
     top: 10px;
     font-size: 0.7rem;
+     font-family: "Montserrat", sans-serif;
+     
 }
 
 li{
@@ -124,7 +130,7 @@ li{
     font-size: 3rem;
     position: absolute;
     top: 55px;
-    left: 50px;
+    left: 45px;
     transform: rotate(-3deg);
     background: linear-gradient(
         to bottom,
@@ -135,13 +141,16 @@ li{
     );
     display: inline-block;
     padding: 0 10px;
+    font-family: "Hammersmith One", sans-serif;
 }
 
 .projectsText {
     font-size: 0.9rem;
     position: absolute;
     top: 140px;
-    left: 22px;
+    left: 15px;
+    font-family: "Hammersmith One", sans-serif;
+    /* font-family: "Montserrat", sans-serif; */
 }
 
 .stickyNotes{
@@ -158,6 +167,7 @@ li{
     position: absolute;
     top: 320px;
     left: 100px;
+     font-family: "Shadows Into Light", cursive;
 }
 
 .pageContent {
@@ -177,7 +187,23 @@ li{
 
 /* Tablets / portrait */
 @media screen and (min-width: 768px){
+    .coverTitle{
+        left: 100px;
+    }
 
+    .projectsTitle {
+        left: 100px;
+    }
+
+    .projectsText {
+        left: 60px;
+    }
+
+    .stickyNotesText{
+        top: 350px;
+        left: 115px;
+        font-size: 1.2rem;
+    }
 }
 
 /* Small laptops / landscape tablets */
@@ -190,13 +216,13 @@ li{
     .projectsTitle {
         font-size: 4rem;
         top: 40px;
-        left: 120px;
+        left: 100px;
     }
 
     .projectsText {
         font-size: 1rem;
         top: 140px;
-        left: 100px;
+        left: 80px;
     }
 
     .pageTitle{
@@ -233,7 +259,6 @@ li{
     }
 
     ul{
-        top: 80px;
         font-size: 1rem;
     }
 

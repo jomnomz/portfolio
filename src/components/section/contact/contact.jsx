@@ -122,14 +122,14 @@ export default function Contact(){
                     sx={{ 
                         marginBottom: {
                             xs: '-1.8px',
-                            sm: '-8px',
-                            md: '-0px',
+                            sm: '-6px',
+                            md: '-px',
                             lg: '-3px'
                         },
                         fontSize: { 
                             xs: '0.8rem',    
-                            sm: '2.5rem', 
-                            md: '3rem',    
+                            sm: '1.5rem', 
+                            md: '1rem',    
                             lg: '1rem'  
                         } 
                     }}

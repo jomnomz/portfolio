@@ -70,7 +70,7 @@ export default function Book() {
         <div className={styles.projectsText}>A project I built to solve a real problem</div>
       </div>
       <div className={styles.page}>
-        <div className={styles.pageTitle}>QR Code Attendance Tracking System for Highschool Students</div>
+        <div className={styles.pageTitle}>QR Code Attendance Tracking System For High school Students</div>
         <div className={styles.imgContainer}>
           <img className={styles.scotchTape1} src={scotchTape1} alt="" />
           <img className={styles.scotchTape2} src={scotchTape2} alt="" />

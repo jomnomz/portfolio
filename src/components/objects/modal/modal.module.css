@@ -1,41 +1,56 @@
 .overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background-color: rgba(0, 0, 0, 0.9);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    
 }
 
 .modal {
     position: relative;
-    background-color: transparent;
-    border-radius: 8px;
+    width: 100%;
     max-width: 90vw;
     max-height: 90vh;
-    overflow: visible;
-    padding: 0;
-    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+
+.content {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    touch-action: pan-y; 
+}
+
+.content img {
+    max-width: 90vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
 }
 
 .closeButton {
     position: absolute;
-    top: 13px;
-    right: 15px;
-    background: white;
+    top: -40px;
+    right: 5px;
+    background: rgb(230, 228, 228);
     border: none;
     cursor: pointer;
-    padding: 8px;
+    width: 30px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease;
     z-index: 10001;
 }
 
@@ -43,37 +58,24 @@
     transform: scale(1.1);
 }
 
-.navButton {
-    position: absolute;
-    left: -80px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgb(221, 221, 221);
-    border: none;
-    border-radius: 50%;
-    padding: 12px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s;
-    z-index: 10001;
-}
-
+/* =========================
+   NAV BUTTONS (Hidden on Mobile)
+========================= */
+.navButton,
 .navButtonRight {
+    display: none; /* hide on mobile */
     position: absolute;
-    right: -80px;
     top: 50%;
     transform: translateY(-50%);
     background: white;
     border: none;
     border-radius: 50%;
-    padding: 12px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
-    display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease;
     z-index: 10001;
 }
 
@@ -82,26 +84,12 @@
     transform: translateY(-50%) scale(1.1);
 }
 
-.content {
-    margin-top: 0;
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.content img {
-    max-width: 80vw;
-    max-height: 80vh;
-    width: auto;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 8px;
-}
-
+/* =========================
+   INDICATORS
+========================= */
 .indicatorContainer {
     position: absolute;
-    bottom: 15px;
+    bottom: 12px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -110,13 +98,86 @@
 }
 
 .indicator {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     transition: all 300ms ease;
 }
 
 .indicator.active {
-    background-color: rgb(255, 255, 255);
+    background-color: white;
+    transform: scale(1.2);
+}
+
+/* =========================
+   576px+ (Larger Phones)
+========================= */
+@media screen and (min-width: 576px) {
+    .content img {
+        max-width: 85vw;
+    }
+}
+
+/* =========================
+   768px+ (Tablets) - Show Buttons
+========================= */
+@media screen and (min-width: 768px) {
+    .navButton,
+    .navButtonRight {
+        display: flex;
+    }
+
+    .navButton {
+        left: -10px;
+    }
+
+    .navButtonRight {
+        right: -10px;
+    }
+
+    .content img {
+        max-width: 80vw;
+        max-height: 80vh;
+    }
+}
+
+/* =========================
+   992px+ (Small Laptops)
+========================= */
+@media screen and (min-width: 992px) {
+    .navButton {
+        left: 10px;
+    }
+
+    .navButtonRight {
+        right: 10px;
+    }
+
+    .content img {
+        max-width: 70vw;
+    }
+
+    .closeButton {
+        top: -22px;
+        right: 40px;
+    }
+}
+
+/* =========================
+   1200px+ (Desktops)
+========================= */
+@media screen and (min-width: 1200px) {
+    .content img {
+        max-width: 60vw;
+    }
+}
+
+/* =========================
+   1400px+ (Large Screens)
+========================= */
+@media screen and (min-width: 1400px) {
+    .content img {
+        max-width: 50vw;
+    }
 }

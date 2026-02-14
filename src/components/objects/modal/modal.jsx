@@ -1,25 +1,47 @@
 import { X, ChevronLeft, ChevronRight } from 'react-feather'
 import { createPortal } from 'react-dom'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import styles from './modal.module.css'
 
 export default function Modal({ isOpen, onClose, children, currentIndex, totalSlides, onPrev, onNext }) {
+    const touchStartX = useRef(0)
+    const touchEndX = useRef(0)
+
     useEffect(() => {
         if (isOpen) {
-            // Disable scrolling when modal opens
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden'
         } else {
-            // Re-enable scrolling when modal closes
-            document.body.style.overflow = 'unset';
+            document.body.style.overflow = 'unset'
         }
 
-        // Cleanup function to re-enable scrolling when component unmounts
         return () => {
-            document.body.style.overflow = 'unset';
-        };
-    }, [isOpen]);
+            document.body.style.overflow = 'unset'
+        }
+    }, [isOpen])
 
-    if (!isOpen) return null;
+    if (!isOpen) return null
+
+    const handleTouchStart = (e) => {
+        touchStartX.current = e.touches[0].clientX
+    }
+
+    const handleTouchMove = (e) => {
+        touchEndX.current = e.touches[0].clientX
+    }
+
+    const handleTouchEnd = () => {
+        const diff = touchStartX.current - touchEndX.current
+
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                // Swiped left → next
+                onNext()
+            } else {
+                // Swiped right → prev
+                onPrev()
+            }
+        }
+    }
 
     return createPortal(
         <div className={styles.overlay} onClick={onClose}>
@@ -27,7 +49,8 @@ export default function Modal({ isOpen, onClose, children, currentIndex, totalSl
                 <button className={styles.closeButton} onClick={onClose}>
                     <X />
                 </button>
-                
+
+                {/* Desktop buttons */}
                 <button className={styles.navButton} onClick={onPrev}>
                     <ChevronLeft />
                 </button>
@@ -35,12 +58,17 @@ export default function Modal({ isOpen, onClose, children, currentIndex, totalSl
                     <ChevronRight />
                 </button>
 
-                <div className={styles.content}>
+                <div
+                    className={styles.content}
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={handleTouchEnd}
+                >
                     {children}
-                    
+
                     <div className={styles.indicatorContainer}>
                         {Array.from({ length: totalSlides }).map((_, i) => (
-                            <div 
+                            <div
                                 key={i}
                                 className={`${styles.indicator} ${currentIndex === i ? styles.active : ''}`}
                             />
@@ -50,5 +78,5 @@ export default function Modal({ isOpen, onClose, children, currentIndex, totalSl
             </div>
         </div>,
         document.body
-    );
+    )
 }

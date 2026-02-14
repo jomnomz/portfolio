@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     justify-content: center;
     position: fixed;
+    font-family: "Cal Sans", sans-serif;
 }
 
 .logoContainer{
@@ -123,15 +124,6 @@
     cursor: none;
 }
 
-.customCursor {
-    position: fixed;
-    pointer-events: none;
-    font-size: 2rem;
-    color: #353f47;
-    transform: translate(-50%, -100%) rotate(1deg);
-    transition: opacity 0.15s ease;
-}
-
 
 /* larger phones */
 @media screen and (min-width: 576px){
@@ -156,6 +148,17 @@
     .logoContainer{
         left: 3rem;
     }
+
+    .customCursor {
+        position: fixed;
+        pointer-events: none;
+        font-size: 2rem;
+        color: #353f47;
+        transform: translate(-50%, -100%) rotate(1deg);
+        transition: opacity 0.15s ease;
+    }
+
+    
 }
 /* Desktops */
 @media screen and (min-width: 1200px){
