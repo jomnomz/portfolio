@@ -29,6 +29,6 @@
 /* Large desktops / wide monitors */
 @media screen and (min-width: 1400px){
   .sections{
-    gap: 400px;
+    gap: 450px;
   }
 }
