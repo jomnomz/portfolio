@@ -148,7 +148,7 @@ li{
     font-size: 0.9rem;
     position: absolute;
     top: 140px;
-    left: 15px;
+    left: 50px;
     font-family: "Hammersmith One", sans-serif;
     /* font-family: "Montserrat", sans-serif; */
 }
@@ -192,11 +192,11 @@ li{
     }
 
     .projectsTitle {
-        left: 100px;
+        left: 90px;
     }
 
     .projectsText {
-        left: 60px;
+        left: 90px;
     }
 
     .stickyNotesText{
@@ -222,7 +222,7 @@ li{
     .projectsText {
         font-size: 1rem;
         top: 140px;
-        left: 80px;
+        left: 110px;
     }
 
     .pageTitle{

@@ -1,5 +1,5 @@
 import HTMLFlipBook from "react-pageflip";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import styles from './book.module.css'
 import qrLogin from '../../../assets/qrLogin.png'
 import qrDashBoard from '../../../assets/qrDashBoard.png'
@@ -20,6 +20,8 @@ const slides = [
 ];
 
 export default function Book() {
+  const bookRef = useRef(null);
+
   const [bookSize, setBookSize] = useState({
     width: 300,
     height: 430,
@@ -30,25 +32,20 @@ export default function Book() {
     const updateSize = () => {
       const w = window.innerWidth;
 
-      if (w >= 1400) {
-        setBookSize({ width: 430, height: 530, usePortrait: false });
-      } else if (w >= 1200) {
-        setBookSize({ width: 430, height: 530, usePortrait: false });
-      } else if (w >= 992) {
-        setBookSize({ width: 430, height: 530, usePortrait: false });
-      } else if (w >= 768) {
-        setBookSize({ width: 360, height: 520, usePortrait: true });
-      } else if (w >= 576) {
-        setBookSize({ width: 280, height: 300, usePortrait: true });
-      } else {
-        setBookSize({ width: 280, height: 430, usePortrait: true });
-      }
+      if (w >= 1400) setBookSize({ width: 430, height: 530, usePortrait: false });
+      else if (w >= 1200) setBookSize({ width: 430, height: 530, usePortrait: false });
+      else if (w >= 992) setBookSize({ width: 430, height: 530, usePortrait: false });
+      else if (w >= 768) setBookSize({ width: 360, height: 520, usePortrait: true });
+      else if (w >= 576) setBookSize({ width: 280, height: 300, usePortrait: true });
+      else setBookSize({ width: 280, height: 430, usePortrait: true });
     };
 
     updateSize();
     window.addEventListener("resize", updateSize);
     return () => window.removeEventListener("resize", updateSize);
   }, []);
+
+  const totalPages = 6;
 
   return (
     <HTMLFlipBook
@@ -60,17 +57,31 @@ export default function Book() {
       showCover={true}
       size="fixed"
       disableFlipByClick={true}
+      ref={bookRef}
+      onFlip={(e) => {
+        const currentPage = e.data;
+        if (bookSize.usePortrait && currentPage === totalPages - 1) {
+          setTimeout(() => {
+            bookRef.current.pageFlip().flip(0); 
+          }, 400);
+        }
+      }}
     >
       <div className={styles.cover}>
         <div className={styles.coverTitle}>Showcase</div>
       </div>
+
       <div className={styles.backPage}></div>
+
       <div className={styles.page}>
         <div className={styles.projectsTitle}>Projects</div>
-        <div className={styles.projectsText}>A project I built to solve a real problem</div>
+        <div className={styles.projectsText}>What I've been working on</div>
       </div>
+
       <div className={styles.page}>
-        <div className={styles.pageTitle}>QR Code Attendance Tracking System For High school Students</div>
+        <div className={styles.pageTitle}>
+          QR Code Attendance Tracking System For High school Students
+        </div>
         <div className={styles.imgContainer}>
           <img className={styles.scotchTape1} src={scotchTape1} alt="" />
           <img className={styles.scotchTape2} src={scotchTape2} alt="" />
@@ -83,6 +94,7 @@ export default function Book() {
           </Carousel>
         </div>
       </div>
+
       <div className={styles.page}>
         <ul>
           <li>Developed a full-stack attendance tracking solution to replace manual paper-based processes, successfully piloted with 38 students over 3 days to validate real-time time-in/time-out functionality</li>
@@ -92,10 +104,14 @@ export default function Book() {
           <li>Implemented automated notifications: email API for sending temporary teacher credentials and SMS API for real-time guardian alerts.</li>
         </ul>
       </div>
+
       <div className={styles.page}>
         <img className={styles.stickyNotes} src={stickyNotes} alt="stickyNotes" />
-        <div className={styles.stickyNotesText}>More projects <br /> on the way...</div>
+        <div className={styles.stickyNotesText}>
+          More projects <br /> on the way...
+        </div>
       </div>
+
       <div className={styles.backPage}></div>
     </HTMLFlipBook>
   );

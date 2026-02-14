@@ -34,10 +34,8 @@ export default function Modal({ isOpen, onClose, children, currentIndex, totalSl
 
         if (Math.abs(diff) > 50) {
             if (diff > 0) {
-                // Swiped left → next
                 onNext()
             } else {
-                // Swiped right → prev
                 onPrev()
             }
         }
@@ -50,7 +48,6 @@ export default function Modal({ isOpen, onClose, children, currentIndex, totalSl
                     <X />
                 </button>
 
-                {/* Desktop buttons */}
                 <button className={styles.navButton} onClick={onPrev}>
                     <ChevronLeft />
                 </button>

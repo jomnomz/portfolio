@@ -40,7 +40,7 @@
 .closeButton {
     position: absolute;
     top: -40px;
-    right: 5px;
+    left: 0px;
     background: rgb(230, 228, 228);
     border: none;
     cursor: pointer;
@@ -136,6 +136,11 @@
         right: -10px;
     }
 
+    .closeButton {
+        top: -40px;
+        left: 30px;
+    }
+
     .content img {
         max-width: 80vw;
         max-height: 80vh;
@@ -147,11 +152,11 @@
 ========================= */
 @media screen and (min-width: 992px) {
     .navButton {
-        left: 10px;
+        left: 250px;
     }
 
     .navButtonRight {
-        right: 10px;
+        right: 250px;
     }
 
     .content img {
@@ -159,18 +164,34 @@
     }
 
     .closeButton {
-        top: -22px;
-        right: 40px;
+        top: -40px;
+        right: 320px;
     }
 }
 
 /* =========================
    1200px+ (Desktops)
 ========================= */
+@media screen and (min-width: 1000px) {
+    .closeButton {
+        top: -40px;
+        left: 100px;
+    }
+
+    .navButton {
+        left: 30px;
+    }
+
+    .navButtonRight {
+        right: 30px;
+    }
+}
 @media screen and (min-width: 1200px) {
     .content img {
         max-width: 60vw;
     }
+
+
 }
 
 /* =========================
@@ -178,6 +199,19 @@
 ========================= */
 @media screen and (min-width: 1400px) {
     .content img {
-        max-width: 50vw;
+        max-width: 70vw;
+    }
+
+    .closeButton {
+        top: -40px;
+        left: 170px;
+    }
+
+    .navButton {
+        left: 30px;
+    }
+
+    .navButtonRight {
+        right: 30px;
     }
 }
