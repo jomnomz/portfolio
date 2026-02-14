@@ -30,7 +30,7 @@ export default function About() {
                     onViewportEnter={() => setIsCardVisible(true)}
                     onViewportLeave={() => setIsCardVisible(false)}
                 >
-                    I am a 21 years old, Currently pursuing BSIT at Polytechnic University of the Philippines.
+                    I am 21 years old, Currently pursuing BSIT at Polytechnic University of the Philippines.
                     I'm an aspiring full-stack developer with familiarity on building web applications
                     and I am strongly interested in branching out more in other areas of software development.
                 </motion.div>
